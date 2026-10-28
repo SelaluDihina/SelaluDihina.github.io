@@ -1,247 +1,688 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f3ec">
-  <meta name="description" content="Portofolio Moch. Salman Al Fariz — proyek game dan machine learning.">
-  <title>Moch. Salman Al Fariz — Portofolio</title>
+  <meta name="theme-color" content="#141414">
+  <meta name="description" content="Portofolio Moch. Salman Al Fariz">
+  <title>Salman — Project Portfolio</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #141414;
+      --panel: #202020;
+      --white: #f5f5f1;
+      --muted: #c0c0c0;
+      --red: #e50914;
+      --line: #363636;
+    }
 
-  <link rel="stylesheet" href="styles.css">
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 20px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button { font: inherit; }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid white;
+      outline-offset: 4px;
+    }
+
+    /* HALAMAN PEMBUKA */
+
+    .hero {
+      padding: 80px 8% 55px;
+      min-height: 340px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          ellipse at 85% 30%,
+          rgba(229, 9, 20, .18),
+          transparent 38%
+        ),
+        linear-gradient(110deg, #202020, #141414 72%);
+      border-bottom: 1px solid #303030;
+    }
+
+    .hero-label {
+      color: #e8a0a3;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .hero h1 {
+      margin: 18px 0 15px;
+      max-width: 700px;
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 1.08;
+      letter-spacing: -3px;
+    }
+
+    .hero h1 span { color: var(--red); }
+
+    .hero p {
+      margin: 0;
+      color: #d0d0d0;
+      font-size: 14px;
+      max-width: 490px;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 11px 17px;
+      border-radius: 4px;
+      background: var(--red);
+      color: white;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .hero-button:hover { background: #ba0710; }
+
+    /* KATALOG PROYEK */
+
+    .catalog {
+      padding: 43px 6% 70px;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 23px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(23px, 3vw, 30px);
+      letter-spacing: -.7px;
+    }
+
+    .section-heading p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .filters {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .filter {
+      background: #252525;
+      border: 1px solid #414141;
+      color: #ddd;
+      border-radius: 4px;
+      padding: 8px 13px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .filter:hover { border-color: #888; }
+
+    .filter.active {
+      color: white;
+      background: var(--red);
+      border-color: var(--red);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      min-width: 0;
+      background: transparent;
+      transition: transform .2s ease;
+    }
+
+    .project-card[hidden] { display: none !important; }
+
+    .project-card:hover { transform: translateY(-5px); }
+
+    .poster-button {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 0;
+      overflow: hidden;
+      aspect-ratio: 2 / 3;
+      border: 1px solid #343434;
+      border-radius: 6px;
+      background: #202020;
+      color: white;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .poster-art {
+      width: 100%;
+      height: 100%;
+      display: block;
+      transition: transform .35s ease;
+    }
+
+    .project-card:hover .poster-art {
+      transform: scale(1.045);
+    }
+
+    .poster-shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, .96),
+        rgba(0, 0, 0, .08) 68%,
+        rgba(0, 0, 0, .12)
+      );
+      pointer-events: none;
+    }
+
+    .poster-number {
+      position: absolute;
+      top: 12px;
+      left: 13px;
+      color: white;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .poster-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 18px 15px;
+    }
+
+    .poster-category {
+      display: block;
+      margin-bottom: 6px;
+      color: #ff7278;
+      font-size: 9px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+    }
+
+    .poster-title {
+      display: block;
+      font-size: clamp(17px, 2vw, 24px);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -.5px;
+    }
+
+    .poster-subtitle {
+      display: block;
+      margin-top: 7px;
+      color: #dedede;
+      font-size: 11px;
+    }
+
+    .poster-open {
+      display: inline-block;
+      margin-top: 13px;
+      padding: 5px 9px;
+      border-radius: 3px;
+      background: rgba(255, 255, 255, .15);
+      color: white;
+      font-size: 10px;
+      font-weight: bold;
+    }
+
+    .poster-meta { padding: 12px 2px 2px; }
+
+    .poster-meta h3 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .poster-meta p {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* POP-UP DETAIL PROYEK */
+
+    .project-dialog {
+      width: min(900px, calc(100% - 28px));
+      max-width: 900px;
+      max-height: 88vh;
+      padding: 0;
+      overflow: auto;
+      color: white;
+      background: #181818;
+      border: 1px solid #414141;
+      border-radius: 8px;
+    }
+
+    .project-dialog::backdrop {
+      background: rgba(0, 0, 0, .83);
+      backdrop-filter: blur(4px);
+    }
+
+    .dialog-close {
+      position: sticky;
+      top: 12px;
+      margin: 12px 12px -50px auto;
+      z-index: 3;
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border: none;
+      border-radius: 50%;
+      background: #292929;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .dialog-close:hover { background: var(--red); }
+
+    .dialog-layout {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+    }
+
+    .dialog-visual {
+      min-width: 0;
+      min-height: 100%;
+      background: #202020;
+    }
+
+    .dialog-visual svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      object-fit: cover;
+    }
+
+    .dialog-content { padding: 49px 30px 30px; }
+
+    .dialog-kicker {
+      margin: 0 0 9px;
+      color: #ff6168;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .dialog-content h2 {
+      margin: 0;
+      font-size: clamp(25px, 3vw, 35px);
+      line-height: 1.2;
+    }
+
+    .dialog-description {
+      margin: 16px 0 25px;
+      color: #d0d0d0;
+      font-size: 13px;
+      line-height: 1.85;
+    }
+
+    .dialog-content h3 {
+      margin: 22px 0 9px;
+      font-size: 13px;
+    }
+
+    .dialog-features {
+      padding-left: 19px;
+      margin: 0;
+      color: #d0d0d0;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .dialog-features li::marker { color: var(--red); }
+
+    .dialog-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .dialog-tags span {
+      padding: 5px 8px;
+      border: 1px solid #4a4a4a;
+      border-radius: 3px;
+      color: #ededed;
+      font-size: 10px;
+    }
+
+    .dialog-status {
+      margin-top: 19px;
+      color: #bcbcbc;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .dialog-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .dialog-links a {
+      padding: 10px 13px;
+      border-radius: 4px;
+      background: white;
+      color: #111;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .dialog-links a:hover { background: #d8d8d8; }
+
+    /* PENDIDIKAN DAN KONTAK */
+
+    .simple-section {
+      padding: 44px 6%;
+      border-top: 1px solid #303030;
+    }
+
+    .simple-section h2 {
+      margin: 0 0 20px;
+      font-size: 24px;
+    }
+
+    .education-line {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 15px;
+      padding: 13px 0;
+      border-bottom: 1px solid #333;
+      font-size: 13px;
+    }
+
+    .education-line span { color: var(--muted); }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-links a {
+      display: inline-block;
+      padding: 10px 15px;
+      border: 1px solid #555;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    .contact-links a:hover {
+      border-color: var(--red);
+      background: var(--red);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 700px) {
+      .hero {
+        padding: 62px 22px 45px;
+        min-height: 320px;
+      }
+
+      .hero h1 {
+        font-size: clamp(40px, 11vw, 63px);
+        letter-spacing: -2px;
+      }
+
+      .catalog { padding: 35px 18px 48px; }
+
+      .section-heading {
+        align-items: start;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 12px;
+      }
+
+      .poster-info { padding: 12px 10px; }
+      .poster-title { font-size: 17px; }
+      .poster-subtitle { font-size: 10px; }
+      .poster-open { font-size: 9px; margin-top: 9px; }
+
+      .project-dialog { max-height: 91vh; }
+
+      .dialog-layout { grid-template-columns: 1fr; }
+
+      .dialog-visual {
+        max-height: 280px;
+        overflow: hidden;
+      }
+
+      .dialog-visual svg {
+        min-height: 0;
+        height: 280px;
+      }
+
+      .dialog-close {
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        margin: 0;
+      }
+
+      .dialog-content { padding: 26px 22px; }
+
+      .education-line {
+        grid-template-columns: 1fr;
+        gap: 3px;
+      }
+
+      .simple-section { padding: 35px 22px; }
+    }
+
+    @media (max-width: 370px) {
+      .project-grid { grid-template-columns: 1fr; }
+      .poster-title { font-size: 22px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
 </head>
+
 <body>
 
-  <header class="site-header">
-    <a class="wordmark" href="#home">MSF<span>.</span></a>
-
-    <nav aria-label="Navigasi utama">
-      <a href="#projects">Proyek</a>
-      <a href="#education">Pendidikan</a>
-      <a href="#contact">Kontak</a>
-    </nav>
-
-    <a class="header-link"
-       href="https://github.com/SelaluDihina"
-       target="_blank" rel="noreferrer">
-      GitHub ↗
-    </a>
-  </header>
+  <!-- PEMBUKA: TANPA NAVBAR -->
+  <section class="hero" id="home">
+    <div class="hero-label">PERSONAL PROJECT PORTFOLIO</div>
+    <h1>Moch. Salman<br><span>Al Fariz.</span></h1>
+    <p>
+      Kumpulan proyek game development dan machine learning.
+      Klik poster untuk melihat detail setiap proyek.
+    </p>
+    <a class="hero-button" href="#projects">Jelajahi Proyek ↓</a>
+  </section>
 
   <main>
-    <!-- HALAMAN UTAMA -->
-    <section class="intro wrap" id="home">
-      <p class="eyebrow">
-        <span class="rule"></span> PORTOFOLIO / 2026
-      </p>
-
-      <h1>Moch. Salman<br><em>Al Fariz.</em></h1>
-
-      <div class="intro-bottom">
-        <p class="intro-copy">
-          Kumpulan proyek pengembangan game dan machine learning
-          yang saya kerjakan dan pelajari.
-        </p>
-
-        <a class="underlined-link" href="#projects">
-          Lihat proyek ↓
-        </a>
-      </div>
-
-      <div class="intro-meta">
-        <span>Mahasiswa Teknologi Game</span>
-        <span>Politeknik Elektronika Negeri Surabaya</span>
-        <span>Surabaya, Indonesia</span>
-      </div>
-    </section>
-
-    <!-- DAFTAR PROYEK -->
-    <section class="projects wrap" id="projects">
+    <section class="catalog" id="projects">
       <div class="section-heading">
-        <div>
-          <p class="eyebrow">01 / KARYA</p>
-          <h2>Proyek terpilih</h2>
-        </div>
-
-        <p class="section-note">
-          Proyek mandiri dan proyek pembelajaran.
-        </p>
+        <h2>Proyek pilihan</h2>
+        <p>3 proyek · Game development dan machine learning</p>
       </div>
 
-      <div class="filters" role="group" aria-label="Filter proyek">
-        <button class="filter is-active" data-filter="all" type="button">
-          Semua <span>03</span>
-        </button>
-
-        <button class="filter" data-filter="gamedev" type="button">
-          Game Development
-        </button>
-
-        <button class="filter" data-filter="ml" type="button">
-          Machine Learning
-        </button>
+      <div class="filters">
+        <button class="filter active" data-filter="all" type="button">Semua (3)</button>
+        <button class="filter" data-filter="gamedev" type="button">Game Development</button>
+        <button class="filter" data-filter="ml" type="button">Machine Learning</button>
       </div>
-
-      <!-- PROYEK 1: TOWER DEFENSE -->
-      <article class="project project-featured" data-category="gamedev">
-        <div class="project-index">
-          01
-          <span>SOLO PROJECT</span>
-        </div>
-
-        <div class="project-main">
-          <div class="project-title-row">
-            <h3>Tower Defense</h3>
-            <span class="project-type">Unity / C#</span>
-          </div>
-
-          <p class="project-description">
-            Game tower defense yang dikembangkan secara mandiri
-            menggunakan Unity dan C#. Pemain menempatkan serta
-            meng-upgrade tower untuk menghentikan gelombang musuh
-            sebelum mencapai base.
-          </p>
-
-          <div class="project-details">
-            <div>
-              <p class="detail-label">FITUR</p>
-
-              <ul class="feature-list">
-                <li>Sistem tower dan serangan</li>
-                <li>Enemy movement dan wave system</li>
-                <li>Sistem damage, HP, dan boss</li>
-                <li>Upgrade, currency, dan UI gameplay</li>
-              </ul>
-            </div>
-
-            <div>
-              <p class="detail-label">KONTRIBUSI</p>
-
-              <p class="detail-copy">
-                Seluruh pengembangan dilakukan secara mandiri,
-                mulai dari implementasi gameplay dan integrasi
-                sistem hingga debugging.
-              </p>
-            </div>
-          </div>
-
-          <div class="project-footer">
-            <div class="tags">
-              <span>Unity</span>
-              <span>C#</span>
-              <span>Gameplay Systems</span>
-            </div>
-
-            <div class="project-links">
-              <a href="https://dolenan30.itch.io/yya"
-                 target="_blank" rel="noreferrer">
-                Mainkan game ↗
-              </a>
-
-              <a href="https://github.com/SelaluDihina/Tower-Defense1"
-                 target="_blank" rel="noreferrer">
-                Source code ↗
-              </a>
-            </div>
-          </div>
-        </div>
-      </article>
 
       <div class="project-grid">
 
-        <!-- PROYEK 2: MNIST -->
-        <article class="project" data-category="ml">
-          <div class="project-index">
-            02
-            <span>LEARNING PROJECT</span>
-          </div>
-
-          <div class="project-main">
-            <div class="project-title-row">
-              <h3>MNIST Handwritten Digit Classification</h3>
-              <span class="project-type">Python / PyTorch</span>
-            </div>
-
-            <p class="project-description">
-              Proyek pembelajaran klasifikasi angka tulisan tangan
-              menggunakan dataset MNIST untuk memahami dasar
-              Convolutional Neural Network (CNN) dengan PyTorch.
-            </p>
-
-            <p class="detail-label">MATERI YANG DIPELAJARI</p>
-
-            <p class="detail-copy">
-              Pemuatan dataset, tensor, penyusunan model CNN,
-              training, loss function, optimizer, dan evaluasi model.
-            </p>
-
-            <div class="tags">
-              <span>Python</span>
-              <span>PyTorch</span>
-              <span>CNN</span>
-              <span>MNIST</span>
-            </div>
-
-            <p class="project-status">
-              Status: masih dalam proses pendalaman dan berbasis tutorial.
-            </p>
-
-            <div class="project-links">
-              <a href="https://github.com/SelaluDihina/Pytorch-Learning"
-                 target="_blank" rel="noreferrer">
-                Lihat notebook ↗
-              </a>
-            </div>
+        <!-- TOWER DEFENSE -->
+        <article class="project-card" data-category="gamedev">
+          <button class="poster-button" data-project="tower" type="button"
+                  aria-label="Lihat detail Tower Defense">
+            <svg class="poster-art" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="400" height="600" fill="#17251f"/>
+              <circle cx="292" cy="115" r="70" fill="#bdc9a0" opacity=".85"/>
+              <circle cx="270" cy="95" r="70" fill="#17251f" opacity=".3"/>
+              <path d="M0 280 L80 180 L145 270 L225 155 L400 310 V600 H0Z" fill="#263c30"/>
+              <path d="M0 355 L105 255 L185 345 L275 250 L400 360 V600 H0Z" fill="#314b39"/>
+              <path d="M-30 560 L80 460 L150 475 L240 380 L320 395 L430 300" fill="none" stroke="#dbb875" stroke-width="33" stroke-linecap="round" opacity=".8"/>
+              <path d="M-30 560 L80 460 L150 475 L240 380 L320 395 L430 300" fill="none" stroke="#5c6349" stroke-width="23" stroke-linecap="round"/>
+              <g transform="translate(87 345)">
+                <path d="M-28 55 L-18 -10 H18 L28 55Z" fill="#a9b98e"/>
+                <path d="M-36 -10 L0 -67 L36 -10Z" fill="#d3dfad"/>
+                <rect x="-7" y="-5" width="14" height="35" fill="#4a5d45"/>
+                <path d="M-3 -45 H3 V5 H-3Z" fill="#f5f3d8"/>
+              </g>
+              <g transform="translate(282 257) scale(.8)">
+                <path d="M-28 55 L-18 -10 H18 L28 55Z" fill="#a9b98e"/>
+                <path d="M-36 -10 L0 -67 L36 -10Z" fill="#d3dfad"/>
+                <rect x="-7" y="-5" width="14" height="35" fill="#4a5d45"/>
+              </g>
+              <g fill="#b9c8a2" opacity=".9">
+                <circle cx="186" cy="454" r="7"/>
+                <circle cx="205" cy="433" r="6"/>
+                <circle cx="226" cy="409" r="5"/>
+              </g>
+              <text x="24" y="48" fill="#d3dfad" font-size="12" letter-spacing="5" font-family="Arial">SOLO GAME PROJECT</text>
+              <text x="23" y="505" fill="#fff" font-size="39" font-weight="900" font-family="Arial">TOWER</text>
+              <text x="23" y="547" fill="#fff" font-size="39" font-weight="900" font-family="Arial">DEFENSE</text>
+              <text x="26" y="572" fill="#d3dfad" font-size="11" letter-spacing="3" font-family="Arial">UNITY / C#</text>
+            </svg>
+            <div class="poster-shade"></div>
+            <span class="poster-number">01 / GAME</span>
+            <span class="poster-info">
+              <span class="poster-category">SOLO PROJECT</span>
+              <span class="poster-title">Tower Defense</span>
+              <span class="poster-subtitle">Unity · C#</span>
+              <span class="poster-open">LIHAT DETAIL +</span>
+            </span>
+          </button>
+          <div class="poster-meta">
+            <h3>Tower Defense</h3>
+            <p>Game development · Solo project</p>
           </div>
         </article>
 
-        <!-- PROYEK 3: RICE CLASSIFICATION -->
-        <article class="project" data-category="ml">
-          <div class="project-index">
-            03
-            <span>LEARNING PROJECT</span>
+        <!-- MNIST -->
+        <article class="project-card" data-category="ml">
+          <button class="poster-button" data-project="mnist" type="button"
+                  aria-label="Lihat detail MNIST Classification">
+            <svg class="poster-art" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="400" height="600" fill="#101820"/>
+              <path d="M0 100 H400 M0 200 H400 M0 300 H400 M0 400 H400 M0 500 H400" stroke="#35444d" stroke-width="1" opacity=".6"/>
+              <path d="M80 0 V600 M160 0 V600 M240 0 V600 M320 0 V600" stroke="#35444d" stroke-width="1" opacity=".6"/>
+              <g fill="#fff" font-family="Georgia,serif" font-style="italic" text-anchor="middle">
+                <text x="94" y="174" font-size="111" transform="rotate(-10 94 174)">7</text>
+                <text x="284" y="172" font-size="105" transform="rotate(8 284 172)">2</text>
+                <text x="87" y="317" font-size="108" transform="rotate(6 87 317)">9</text>
+                <text x="285" y="316" font-size="109" transform="rotate(-9 285 316)">4</text>
+                <text x="100" y="456" font-size="104" transform="rotate(-6 100 456)">1</text>
+                <text x="287" y="461" font-size="104" transform="rotate(7 287 461)">8</text>
+              </g>
+              <rect x="25" y="25" width="56" height="45" rx="5" fill="#e50914"/>
+              <text x="53" y="57" text-anchor="middle" fill="white" font-family="Arial" font-size="31" font-weight="900">AI</text>
+              <text x="25" y="525" fill="#fff" font-size="26" font-family="Arial" font-weight="900">MNIST</text>
+              <text x="25" y="557" fill="#b8c8d2" font-size="18" font-family="Arial">DIGIT CLASSIFICATION</text>
+              <text x="25" y="580" fill="#a4b0b8" font-size="11" letter-spacing="3" font-family="Arial">PYTHON / PYTORCH</text>
+            </svg>
+            <div class="poster-shade"></div>
+            <span class="poster-number">02 / AI & ML</span>
+            <span class="poster-info">
+              <span class="poster-category">LEARNING PROJECT</span>
+              <span class="poster-title">MNIST Classification</span>
+              <span class="poster-subtitle">Python · PyTorch · CNN</span>
+              <span class="poster-open">LIHAT DETAIL +</span>
+            </span>
+          </button>
+          <div class="poster-meta">
+            <h3>MNIST Handwritten Digit Classification</h3>
+            <p>Computer vision · Learning project</p>
           </div>
+        </article>
 
-          <div class="project-main">
-            <div class="project-title-row">
-              <h3>Rice Classification</h3>
-              <span class="project-type">Machine Learning</span>
-            </div>
-
-            <p class="project-description">
-              Proyek pembelajaran klasifikasi jenis beras berdasarkan
-              karakteristik numerik dataset untuk memahami alur
-              machine learning pada data tabular.
-            </p>
-
-            <p class="detail-label">MATERI YANG DIPELAJARI</p>
-
-            <p class="detail-copy">
-              Membaca dataset, fitur dan label, persiapan data,
-              Dataset dan DataLoader, training, serta evaluasi model.
-            </p>
-
-            <div class="tags">
-              <span>Python</span>
-              <span>PyTorch</span>
-              <span>Pandas</span>
-              <span>NumPy</span>
-              <span>Scikit-learn</span>
-            </div>
-
-            <p class="project-status">
-              Status: proyek pembelajaran; pemahaman dan evaluasi masih dikembangkan.
-            </p>
-
-            <div class="project-links">
-              <a href="https://github.com/SelaluDihina/Pytorch-Learning"
-                 target="_blank" rel="noreferrer">
-                Lihat notebook ↗
-              </a>
-            </div>
+        <!-- RICE CLASSIFICATION -->
+        <article class="project-card" data-category="ml">
+          <button class="poster-button" data-project="rice" type="button"
+                  aria-label="Lihat detail Rice Classification">
+            <svg class="poster-art" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="400" height="600" fill="#373b2c"/>
+              <circle cx="205" cy="272" r="175" fill="#777653" opacity=".3"/>
+              <g fill="#ded2a5" stroke="#b6a87d" stroke-width="2">
+                <ellipse cx="84" cy="130" rx="13" ry="31" transform="rotate(-35 84 130)"/>
+                <ellipse cx="155" cy="100" rx="12" ry="29" transform="rotate(26 155 100)"/>
+                <ellipse cx="245" cy="125" rx="13" ry="32" transform="rotate(-24 245 125)"/>
+                <ellipse cx="320" cy="151" rx="12" ry="28" transform="rotate(48 320 151)"/>
+                <ellipse cx="114" cy="228" rx="13" ry="31" transform="rotate(48 114 228)"/>
+                <ellipse cx="194" cy="205" rx="13" ry="32" transform="rotate(-30 194 205)"/>
+                <ellipse cx="285" cy="246" rx="13" ry="30" transform="rotate(27 285 246)"/>
+                <ellipse cx="66" cy="322" rx="12" ry="29" transform="rotate(30 66 322)"/>
+                <ellipse cx="153" cy="316" rx="13" ry="32" transform="rotate(-46 153 316)"/>
+                <ellipse cx="236" cy="335" rx="12" ry="28" transform="rotate(25 236 335)"/>
+                <ellipse cx="331" cy="334" rx="13" ry="30" transform="rotate(-30 331 334)"/>
+                <ellipse cx="104" cy="417" rx="13" ry="32" transform="rotate(-15 104 417)"/>
+                <ellipse cx="197" cy="432" rx="13" ry="31" transform="rotate(35 197 432)"/>
+                <ellipse cx="289" cy="434" rx="13" ry="30" transform="rotate(-42 289 434)"/>
+              </g>
+              <g fill="#f2e6bd" opacity=".8">
+                <ellipse cx="87" cy="124" rx="3" ry="18" transform="rotate(-35 87 124)"/>
+                <ellipse cx="158" cy="95" rx="3" ry="16" transform="rotate(26 158 95)"/>
+                <ellipse cx="248" cy="119" rx="3" ry="19" transform="rotate(-24 248 119)"/>
+                <ellipse cx="117" cy="222" rx="3" ry="18" transform="rotate(48 117 222)"/>
+                <ellipse cx="197" cy="199" rx="3" ry="18" transform="rotate(-30 197 199)"/>
+                <ellipse cx="156" cy="309" rx="3" ry="18" transform="rotate(-46 156 309)"/>
+                <ellipse cx="200" cy="426" rx="3" ry="18" transform="rotate(35 200 426)"/>
+              </g>
+              <text x="25" y="48" fill="#f0e6c4" font-size="12" letter-spacing="4" font-family="Arial">DATA CLASSIFICATION</text>
+              <text x="24" y="510" fill="#fff" font-size="37" font-family="Georgia,serif" font-weight="bold">RICE</text>
+              <text x="24" y="551" fill="#fff" font-size="37" font-family="Georgia,serif" font-weight="bold">CLASSIFICATION</text>
+              <text x="26" y="577" fill="#e3d8b8" font-size="11" letter-spacing="3" font-family="Arial">PYTHON / MACHINE LEARNING</text>
+            </svg>
+            <div class="poster-shade"></div>
+            <span class="poster-number">03 / AI & ML</span>
+            <span class="poster-info">
+              <span class="poster-category">LEARNING PROJECT</span>
+              <span class="poster-title">Rice Classification</span>
+              <span class="poster-subtitle">Python · PyTorch</span>
+              <span class="poster-open">LIHAT DETAIL +</span>
+            </span>
+          </button>
+          <div class="poster-meta">
+            <h3>Rice Classification</h3>
+            <p>Machine learning · Learning project</p>
           </div>
         </article>
 
@@ -249,56 +690,211 @@
     </section>
 
     <!-- PENDIDIKAN -->
-    <section class="education wrap" id="education">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">02 / LATAR BELAKANG</p>
-          <h2>Pendidikan</h2>
-        </div>
-      </div>
-
-      <div class="education-row">
-        <span class="education-label">PROGRAM STUDI</span>
+    <section class="simple-section" id="education">
+      <h2>Pendidikan</h2>
+      <div class="education-line">
+        <span>Program studi</span>
         <strong>Teknologi Game</strong>
       </div>
-
-      <div class="education-row">
-        <span class="education-label">INSTITUSI</span>
+      <div class="education-line">
+        <span>Institusi</span>
         <strong>Politeknik Elektronika Negeri Surabaya (PENS)</strong>
       </div>
     </section>
 
     <!-- KONTAK -->
-    <section class="contact wrap" id="contact">
-      <p class="eyebrow">03 / KONTAK</p>
-
-      <div class="contact-row">
-        <h2>Kontak</h2>
-
-        <div class="contact-links">
-          <a href="mailto:alfrzxy@gmail.com">
-            Email ↗
-          </a>
-
-          <a href="https://github.com/SelaluDihina"
-             target="_blank" rel="noreferrer">
-            GitHub ↗
-          </a>
-        </div>
+    <section class="simple-section" id="contact">
+      <h2>Kontak</h2>
+      <div class="contact-links">
+        <a href="mailto:alfrzxy@gmail.com">Email ↗</a>
+        <a href="https://github.com/SelaluDihina"
+           target="_blank" rel="noreferrer">GitHub ↗</a>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer wrap">
-    <a class="wordmark" href="#home">MSF<span>.</span></a>
+  <!-- DETAIL PROYEK -->
+  <dialog class="project-dialog" id="projectDialog">
+    <button class="dialog-close" id="closeDialog"
+            aria-label="Tutup detail proyek">×</button>
 
-    <span>
-      © <span id="year">2026</span> Moch. Salman Al Fariz
-    </span>
+    <div class="dialog-layout">
+      <div class="dialog-visual" id="dialogVisual"></div>
 
-    <a href="#home">Kembali ke atas ↑</a>
-  </footer>
+      <div class="dialog-content">
+        <p class="dialog-kicker" id="dialogKicker"></p>
+        <h2 id="dialogTitle"></h2>
+        <p class="dialog-description" id="dialogDescription"></p>
 
-  <script src="script.js"></script>
+        <h3>Apa yang dikerjakan?</h3>
+        <ul class="dialog-features" id="dialogFeatures"></ul>
+
+        <h3>Teknologi</h3>
+        <div class="dialog-tags" id="dialogTags"></div>
+
+        <p class="dialog-status" id="dialogStatus"></p>
+        <div class="dialog-links" id="dialogLinks"></div>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    const projectDetails = {
+      tower: {
+        kicker: "01 / GAME DEVELOPMENT",
+        title: "Tower Defense",
+        description:
+          "Game tower defense yang dikembangkan secara mandiri menggunakan Unity dan C#. Pemain mempertahankan base dari gelombang musuh dengan menempatkan dan meng-upgrade tower.",
+        features: [
+          "Sistem tower dan serangan untuk menyerang musuh.",
+          "Enemy movement dan wave system.",
+          "Sistem damage dan HP untuk unit.",
+          "Upgrade tower menggunakan currency.",
+          "Boss dan UI gameplay.",
+          "Integrasi sistem serta debugging secara mandiri."
+        ],
+        technologies: ["Unity", "C#", "Gameplay Systems"],
+        status:
+          "Solo project. Seluruh pengembangan dikerjakan secara mandiri.",
+        links: [
+          {
+            label: "Mainkan game ↗",
+            url: "https://dolenan30.itch.io/yya"
+          },
+          {
+            label: "Source code ↗",
+            url: "https://github.com/SelaluDihina/Tower-Defense1"
+          }
+        ]
+      },
+
+      mnist: {
+        kicker: "02 / COMPUTER VISION",
+        title: "MNIST Handwritten Digit Classification",
+        description:
+          "Proyek pembelajaran klasifikasi gambar angka tulisan tangan menggunakan dataset MNIST dengan pendekatan CNN di PyTorch.",
+        features: [
+          "Memuat dan memeriksa dataset MNIST.",
+          "Mengubah gambar menjadi tensor.",
+          "Menyusun model Convolutional Neural Network (CNN).",
+          "Mempelajari training, loss function, dan optimizer.",
+          "Mempelajari evaluasi model klasifikasi."
+        ],
+        technologies: ["Python", "PyTorch", "CNN", "MNIST"],
+        status:
+          "Learning project berbasis tutorial. Pemahaman kode dan eksperimen masih dalam proses pendalaman.",
+        links: [
+          {
+            label: "Lihat notebook ↗",
+            url: "https://github.com/SelaluDihina/Pytorch-Learning"
+          }
+        ]
+      },
+
+      rice: {
+        kicker: "03 / MACHINE LEARNING",
+        title: "Rice Classification",
+        description:
+          "Proyek pembelajaran klasifikasi jenis beras berdasarkan karakteristik numerik dataset untuk memahami alur machine learning pada data tabular.",
+        features: [
+          "Membaca dan memeriksa dataset menggunakan Pandas.",
+          "Memahami fitur dan label yang digunakan model.",
+          "Mempelajari persiapan data sebelum training.",
+          "Menggunakan Dataset dan DataLoader di PyTorch.",
+          "Mempelajari proses training dan evaluasi model."
+        ],
+        technologies: [
+          "Python", "PyTorch", "Pandas", "NumPy", "Scikit-learn"
+        ],
+        status:
+          "Learning project berbasis tutorial. Pemahaman kode dan evaluasi masih terus dikembangkan.",
+        links: [
+          {
+            label: "Lihat notebook ↗",
+            url: "https://github.com/SelaluDihina/Pytorch-Learning"
+          }
+        ]
+      }
+    };
+
+    const dialog = document.getElementById("projectDialog");
+    const dialogVisual = document.getElementById("dialogVisual");
+    const dialogKicker = document.getElementById("dialogKicker");
+    const dialogTitle = document.getElementById("dialogTitle");
+    const dialogDescription = document.getElementById("dialogDescription");
+    const dialogFeatures = document.getElementById("dialogFeatures");
+    const dialogTags = document.getElementById("dialogTags");
+    const dialogStatus = document.getElementById("dialogStatus");
+    const dialogLinks = document.getElementById("dialogLinks");
+
+    document.querySelectorAll(".poster-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const project = projectDetails[button.dataset.project];
+        if (!project) return;
+
+        const poster = button.querySelector("svg").cloneNode(true);
+        poster.removeAttribute("aria-hidden");
+        poster.setAttribute("role", "img");
+        poster.setAttribute("aria-label", project.title);
+
+        dialogVisual.replaceChildren(poster);
+        dialogKicker.textContent = project.kicker;
+        dialogTitle.textContent = project.title;
+        dialogDescription.textContent = project.description;
+        dialogStatus.textContent = project.status;
+
+        dialogFeatures.replaceChildren();
+        project.features.forEach((feature) => {
+          const li = document.createElement("li");
+          li.textContent = feature;
+          dialogFeatures.appendChild(li);
+        });
+
+        dialogTags.replaceChildren();
+        project.technologies.forEach((technology) => {
+          const tag = document.createElement("span");
+          tag.textContent = technology;
+          dialogTags.appendChild(tag);
+        });
+
+        dialogLinks.replaceChildren();
+        project.links.forEach((link) => {
+          const anchor = document.createElement("a");
+          anchor.href = link.url;
+          anchor.target = "_blank";
+          anchor.rel = "noreferrer";
+          anchor.textContent = link.label;
+          dialogLinks.appendChild(anchor);
+        });
+
+        dialog.showModal();
+      });
+    });
+
+    document.getElementById("closeDialog").addEventListener("click", () => {
+      dialog.close();
+    });
+
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+
+    document.querySelectorAll(".filter").forEach((button) => {
+      button.addEventListener("click", () => {
+        const selected = button.dataset.filter;
+
+        document.querySelectorAll(".filter").forEach((filter) => {
+          filter.classList.toggle("active", filter === button);
+        });
+
+        document.querySelectorAll(".project-card").forEach((card) => {
+          card.hidden =
+            selected !== "all" &&
+            card.dataset.category !== selected;
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>

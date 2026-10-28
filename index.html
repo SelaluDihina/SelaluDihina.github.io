@@ -3,344 +3,228 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#10120f">
+  <meta name="theme-color" content="#f6f3ec">
   <meta name="description" content="Portofolio Moch. Salman Al Fariz — proyek game dan machine learning.">
-  <title>Moch. Salman Al Fariz — Portfolio</title>
+  <title>Moch. Salman Al Fariz — Portofolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <header class="topbar">
-    <a class="brand" href="#home" aria-label="Kembali ke atas">
-      <span class="brand-mark">SF</span>
-      <span>PORTOFOLIO<span class="brand-dot">.</span></span>
-    </a>
+
+  <header class="site-header">
+    <a class="wordmark" href="#home">MSF<span>.</span></a>
 
     <nav aria-label="Navigasi utama">
       <a href="#projects">Proyek</a>
-      <a href="#about">Pendidikan</a>
+      <a href="#education">Pendidikan</a>
       <a href="#contact">Kontak</a>
     </nav>
 
-    <a class="nav-cta"
+    <a class="header-link"
        href="https://github.com/SelaluDihina"
-       target="_blank"
-       rel="noreferrer">
-      GitHub <span>↗</span>
+       target="_blank" rel="noreferrer">
+      GitHub ↗
     </a>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="hero section-wrap" id="home">
-      <div class="hero-copy">
-        <div class="eyebrow">
-          <span class="status-dot"></span>
-          PORTOFOLIO • 2026
-        </div>
+    <!-- HALAMAN UTAMA -->
+    <section class="intro wrap" id="home">
+      <p class="eyebrow">
+        <span class="rule"></span> PORTOFOLIO / 2026
+      </p>
 
-        <h1>Moch. Salman<br><span>Al Fariz.</span></h1>
+      <h1>Moch. Salman<br><em>Al Fariz.</em></h1>
 
-        <p class="hero-subtitle">
-          Game Technology student building projects with
-          <strong>Unity, C#, Python, and PyTorch.</strong>
-        </p>
-
-        <p class="hero-description">
+      <div class="intro-bottom">
+        <p class="intro-copy">
           Kumpulan proyek pengembangan game dan machine learning
           yang saya kerjakan dan pelajari.
         </p>
 
-        <div class="hero-actions">
-          <a class="button button-primary" href="#projects">
-            Lihat Proyek <span>↓</span>
-          </a>
-
-          <a class="button button-ghost" href="mailto:alfrzxy@gmail.com">
-            Hubungi Saya <span>↗</span>
-          </a>
-        </div>
-
-        <div class="hero-meta">
-          <div>
-            <span class="meta-label">INSTITUSI</span>
-            <strong>PENS</strong>
-          </div>
-
-          <div>
-            <span class="meta-label">FOKUS</span>
-            <strong>Game Dev · AI/ML</strong>
-          </div>
-
-          <div>
-            <span class="meta-label">LOKASI</span>
-            <strong>Indonesia</strong>
-          </div>
-        </div>
+        <a class="underlined-link" href="#projects">
+          Lihat proyek ↓
+        </a>
       </div>
 
-      <div class="hero-art" aria-label="Ilustrasi kode">
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-
-        <div class="art-card card-back">
-          <span class="tiny-label">TECH STACK</span>
-          <div class="code-line short"></div>
-          <div class="code-line"></div>
-          <div class="code-line medium"></div>
-          <div class="code-line short"></div>
-
-          <div class="art-tags">
-            <span>Python</span>
-            <span>PyTorch</span>
-          </div>
-        </div>
-
-        <div class="art-card card-front">
-          <div class="terminal-head">
-            <i></i><i></i><i></i>
-            <span>project.log</span>
-          </div>
-
-          <div class="terminal-body">
-            <p><b>01</b> <span class="syntax-purple">class</span> Portfolio:</p>
-            <p><b>02</b> &nbsp; focus = <span class="syntax-green">["Unity", "AI"]</span></p>
-            <p><b>03</b> &nbsp; develop( )</p>
-            <p><b>04</b> &nbsp; test( )</p>
-            <p><b>05</b> &nbsp; improve( )<span class="cursor"></span></p>
-          </div>
-
-          <div class="terminal-foot">
-            <span>●</span> PROJECTS & DEVELOPMENT
-          </div>
-        </div>
-
-        <div class="floating-chip chip-top">C# <span>●</span></div>
-        <div class="floating-chip chip-bottom">PYTHON <span>⌘</span></div>
-      </div>
-
-      <div class="scroll-note">
-        <span class="scroll-line"></span>
-        SCROLL TO EXPLORE
+      <div class="intro-meta">
+        <span>Mahasiswa Teknologi Game</span>
+        <span>Politeknik Elektronika Negeri Surabaya</span>
+        <span>Surabaya, Indonesia</span>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section class="projects section-wrap" id="projects">
+    <!-- DAFTAR PROYEK -->
+    <section class="projects wrap" id="projects">
       <div class="section-heading">
         <div>
-          <div class="eyebrow">01 / PROJECTS</div>
-          <h2>Daftar <span>proyek.</span></h2>
+          <p class="eyebrow">01 / KARYA</p>
+          <h2>Proyek terpilih</h2>
         </div>
 
-        <p>
-          Proyek pengembangan game dan machine learning
-          yang pernah saya kerjakan atau pelajari.
+        <p class="section-note">
+          Proyek mandiri dan proyek pembelajaran.
         </p>
       </div>
 
-      <div class="filter-row" role="group" aria-label="Filter proyek">
-        <button class="filter active" data-filter="all">
+      <div class="filters" role="group" aria-label="Filter proyek">
+        <button class="filter is-active" data-filter="all" type="button">
           Semua <span>03</span>
         </button>
 
-        <button class="filter" data-filter="gamedev">
+        <button class="filter" data-filter="gamedev" type="button">
           Game Development
         </button>
 
-        <button class="filter" data-filter="ml">
+        <button class="filter" data-filter="ml" type="button">
           Machine Learning
         </button>
       </div>
 
-      <!-- PROJECT 1: TOWER DEFENSE -->
-      <article class="project-card featured" data-category="gamedev">
-        <div class="project-visual tower-visual">
-          <div class="visual-top">
-            <span>PROJECT_001</span>
-            <span>UNITY / C#</span>
-          </div>
-
-          <div class="tower-scene">
-            <div class="moon"></div>
-            <div class="grid-floor"></div>
-            <div class="tower tower-a"><i></i></div>
-            <div class="tower tower-b"><i></i></div>
-            <div class="base-core"></div>
-            <div class="enemy enemy-a"></div>
-            <div class="enemy enemy-b"></div>
-            <div class="path-line"></div>
-          </div>
-
-          <div class="visual-caption">
-            DEFEND · UPGRADE · SURVIVE
-          </div>
+      <!-- PROYEK 1: TOWER DEFENSE -->
+      <article class="project project-featured" data-category="gamedev">
+        <div class="project-index">
+          01
+          <span>SOLO PROJECT</span>
         </div>
 
-        <div class="project-content">
-          <div class="project-kicker">
-            <span class="project-number">01</span>
-            <span class="pill pill-complete">Solo Project</span>
+        <div class="project-main">
+          <div class="project-title-row">
+            <h3>Tower Defense</h3>
+            <span class="project-type">Unity / C#</span>
           </div>
 
-          <h3>Tower Defense</h3>
-
-          <p class="project-summary">
+          <p class="project-description">
             Game tower defense yang dikembangkan secara mandiri
             menggunakan Unity dan C#. Pemain menempatkan serta
             meng-upgrade tower untuk menghentikan gelombang musuh
             sebelum mencapai base.
           </p>
 
-          <div class="tag-list">
-            <span>Unity</span>
-            <span>C#</span>
-            <span>Gameplay Systems</span>
+          <div class="project-details">
+            <div>
+              <p class="detail-label">FITUR</p>
+
+              <ul class="feature-list">
+                <li>Sistem tower dan serangan</li>
+                <li>Enemy movement dan wave system</li>
+                <li>Sistem damage, HP, dan boss</li>
+                <li>Upgrade, currency, dan UI gameplay</li>
+              </ul>
+            </div>
+
+            <div>
+              <p class="detail-label">KONTRIBUSI</p>
+
+              <p class="detail-copy">
+                Seluruh pengembangan dilakukan secara mandiri,
+                mulai dari implementasi gameplay dan integrasi
+                sistem hingga debugging.
+              </p>
+            </div>
           </div>
 
-          <div class="feature-list">
-            <span>Sistem tower & serangan</span>
-            <span>Enemy & wave system</span>
-            <span>Damage, HP & boss</span>
-            <span>Upgrade, currency & UI</span>
-          </div>
+          <div class="project-footer">
+            <div class="tags">
+              <span>Unity</span>
+              <span>C#</span>
+              <span>Gameplay Systems</span>
+            </div>
 
-          <p class="learning-note">
-            <strong>Kontribusi</strong> — Seluruh pengembangan
-            dikerjakan secara mandiri, mulai dari implementasi
-            gameplay dan integrasi sistem hingga debugging.
-          </p>
+            <div class="project-links">
+              <a href="https://dolenan30.itch.io/yya"
+                 target="_blank" rel="noreferrer">
+                Mainkan game ↗
+              </a>
 
-          <div class="project-links">
-            <a class="text-link"
-               href="https://dolenan30.itch.io/yya"
-               target="_blank"
-               rel="noreferrer">
-              Mainkan game <span>↗</span>
-            </a>
-
-            <a class="text-link"
-               href="https://github.com/SelaluDihina/Tower-Defense1"
-               target="_blank"
-               rel="noreferrer">
-              Source code <span>↗</span>
-            </a>
+              <a href="https://github.com/SelaluDihina/Tower-Defense1"
+                 target="_blank" rel="noreferrer">
+                Source code ↗
+              </a>
+            </div>
           </div>
         </div>
       </article>
 
       <div class="project-grid">
-        <!-- PROJECT 2: MNIST -->
-        <article class="project-card" data-category="ml">
-          <div class="mini-visual mnist-visual">
-            <div class="visual-top">
-              <span>PROJECT_002</span>
-              <span>PYTORCH</span>
-            </div>
 
-            <div class="digit-grid" aria-label="Ilustrasi angka tulisan tangan">
-              <span>7</span>
-              <span>2</span>
-              <span>9</span>
-              <span>4</span>
-              <span>1</span>
-              <span>8</span>
-              <span>3</span>
-              <span>5</span>
-              <span>6</span>
-            </div>
-
-            <div class="mini-visual-label">
-              HANDWRITTEN DIGITS / 28×28
-            </div>
+        <!-- PROYEK 2: MNIST -->
+        <article class="project" data-category="ml">
+          <div class="project-index">
+            02
+            <span>LEARNING PROJECT</span>
           </div>
 
-          <div class="project-content">
-            <div class="project-kicker">
-              <span class="project-number">02</span>
-              <span class="pill pill-learning">Learning Project</span>
+          <div class="project-main">
+            <div class="project-title-row">
+              <h3>MNIST Handwritten Digit Classification</h3>
+              <span class="project-type">Python / PyTorch</span>
             </div>
 
-            <h3>MNIST Handwritten Digit Classification</h3>
-
-            <p class="project-summary">
+            <p class="project-description">
               Proyek pembelajaran klasifikasi angka tulisan tangan
-              menggunakan dataset MNIST dan PyTorch untuk memahami
-              dasar Convolutional Neural Network (CNN).
+              menggunakan dataset MNIST untuk memahami dasar
+              Convolutional Neural Network (CNN) dengan PyTorch.
             </p>
 
-            <div class="tag-list">
+            <p class="detail-label">MATERI YANG DIPELAJARI</p>
+
+            <p class="detail-copy">
+              Pemuatan dataset, tensor, penyusunan model CNN,
+              training, loss function, optimizer, dan evaluasi model.
+            </p>
+
+            <div class="tags">
               <span>Python</span>
               <span>PyTorch</span>
               <span>CNN</span>
               <span>MNIST</span>
             </div>
 
-            <p class="learning-note">
-              <strong>Materi yang dipelajari</strong> — Pemrosesan
-              dataset, tensor, penyusunan model CNN, training,
-              loss function, optimizer, dan evaluasi model.
+            <p class="project-status">
+              Status: masih dalam proses pendalaman dan berbasis tutorial.
             </p>
 
-            <div class="status-note">
-              <span class="status-dot"></span>
-              Proyek pembelajaran; masih dalam proses pendalaman.
-            </div>
-
             <div class="project-links">
-              <a class="text-link"
-                 href="https://github.com/SelaluDihina/Pytorch-Learning"
-                 target="_blank"
-                 rel="noreferrer">
-                Lihat notebook <span>↗</span>
+              <a href="https://github.com/SelaluDihina/Pytorch-Learning"
+                 target="_blank" rel="noreferrer">
+                Lihat notebook ↗
               </a>
             </div>
           </div>
         </article>
 
-        <!-- PROJECT 3: RICE CLASSIFICATION -->
-        <article class="project-card" data-category="ml">
-          <div class="mini-visual rice-visual">
-            <div class="visual-top">
-              <span>PROJECT_003</span>
-              <span>ML / TABULAR</span>
-            </div>
-
-            <div class="rice-art">
-              <div class="rice-grain g1"></div>
-              <div class="rice-grain g2"></div>
-              <div class="rice-grain g3"></div>
-              <div class="rice-grain g4"></div>
-              <div class="rice-grain g5"></div>
-              <div class="rice-grain g6"></div>
-              <div class="rice-grain g7"></div>
-              <div class="rice-grain g8"></div>
-              <div class="rice-grain g9"></div>
-              <div class="rice-grain g10"></div>
-              <div class="rice-grain g11"></div>
-              <div class="rice-grain g12"></div>
-            </div>
-
-            <div class="mini-visual-label">
-              RICE TYPE CLASSIFICATION
-            </div>
+        <!-- PROYEK 3: RICE CLASSIFICATION -->
+        <article class="project" data-category="ml">
+          <div class="project-index">
+            03
+            <span>LEARNING PROJECT</span>
           </div>
 
-          <div class="project-content">
-            <div class="project-kicker">
-              <span class="project-number">03</span>
-              <span class="pill pill-learning">Learning Project</span>
+          <div class="project-main">
+            <div class="project-title-row">
+              <h3>Rice Classification</h3>
+              <span class="project-type">Machine Learning</span>
             </div>
 
-            <h3>Rice Classification</h3>
-
-            <p class="project-summary">
+            <p class="project-description">
               Proyek pembelajaran klasifikasi jenis beras berdasarkan
               karakteristik numerik dataset untuk memahami alur
               machine learning pada data tabular.
             </p>
 
-            <div class="tag-list">
+            <p class="detail-label">MATERI YANG DIPELAJARI</p>
+
+            <p class="detail-copy">
+              Membaca dataset, fitur dan label, persiapan data,
+              Dataset dan DataLoader, training, serta evaluasi model.
+            </p>
+
+            <div class="tags">
               <span>Python</span>
               <span>PyTorch</span>
               <span>Pandas</span>
@@ -348,81 +232,69 @@
               <span>Scikit-learn</span>
             </div>
 
-            <p class="learning-note">
-              <strong>Materi yang dipelajari</strong> — Membaca
-              dataset, memahami fitur dan label, persiapan data,
-              Dataset dan DataLoader, training, serta evaluasi model.
+            <p class="project-status">
+              Status: proyek pembelajaran; pemahaman dan evaluasi masih dikembangkan.
             </p>
 
-            <div class="status-note">
-              <span class="status-dot"></span>
-              Proyek pembelajaran; pemahaman dan evaluasi masih dikembangkan.
-            </div>
-
             <div class="project-links">
-              <a class="text-link"
-                 href="https://github.com/SelaluDihina/Pytorch-Learning"
-                 target="_blank"
-                 rel="noreferrer">
-                Lihat notebook <span>↗</span>
+              <a href="https://github.com/SelaluDihina/Pytorch-Learning"
+                 target="_blank" rel="noreferrer">
+                Lihat notebook ↗
               </a>
             </div>
           </div>
         </article>
+
       </div>
     </section>
 
     <!-- PENDIDIKAN -->
-    <section class="about section-wrap" id="about">
-      <div class="about-left">
-        <div class="eyebrow">02 / PENDIDIKAN</div>
-        <h2>Pendidikan<span>.</span></h2>
+    <section class="education wrap" id="education">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">02 / LATAR BELAKANG</p>
+          <h2>Pendidikan</h2>
+        </div>
       </div>
 
-      <div class="about-right">
-        <div class="about-facts">
-          <div>
-            <span>PROGRAM STUDI</span>
-            <strong>Teknologi Game</strong>
-          </div>
+      <div class="education-row">
+        <span class="education-label">PROGRAM STUDI</span>
+        <strong>Teknologi Game</strong>
+      </div>
 
-          <div>
-            <span>INSTITUSI</span>
-            <strong>Politeknik Elektronika Negeri Surabaya (PENS)</strong>
-          </div>
-        </div>
+      <div class="education-row">
+        <span class="education-label">INSTITUSI</span>
+        <strong>Politeknik Elektronika Negeri Surabaya (PENS)</strong>
       </div>
     </section>
 
     <!-- KONTAK -->
-    <section class="contact section-wrap" id="contact">
-      <div class="eyebrow">03 / KONTAK</div>
+    <section class="contact wrap" id="contact">
+      <p class="eyebrow">03 / KONTAK</p>
 
-      <h2>Kontak<span>.</span></h2>
+      <div class="contact-row">
+        <h2>Kontak</h2>
 
-      <div class="contact-actions">
-        <a class="button button-primary"
-           href="mailto:alfrzxy@gmail.com">
-          Email <span>↗</span>
-        </a>
+        <div class="contact-links">
+          <a href="mailto:alfrzxy@gmail.com">
+            Email ↗
+          </a>
 
-        <a class="button button-ghost"
-           href="https://github.com/SelaluDihina"
-           target="_blank"
-           rel="noreferrer">
-          GitHub <span>↗</span>
-        </a>
+          <a href="https://github.com/SelaluDihina"
+             target="_blank" rel="noreferrer">
+            GitHub ↗
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <a class="brand" href="#home">
-      <span class="brand-mark">SF</span>
-      <span>MOCH. SALMAN AL FARIZ<span class="brand-dot">.</span></span>
-    </a>
+  <footer class="site-footer wrap">
+    <a class="wordmark" href="#home">MSF<span>.</span></a>
 
-    <span>© <span id="year">2026</span> Moch. Salman Al Fariz</span>
+    <span>
+      © <span id="year">2026</span> Moch. Salman Al Fariz
+    </span>
 
     <a href="#home">Kembali ke atas ↑</a>
   </footer>

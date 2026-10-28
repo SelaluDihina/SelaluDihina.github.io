@@ -1,15 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
   const filters = document.querySelectorAll(".filter");
-  const cards = document.querySelectorAll(".project-card[data-category]");
+  const projects = document.querySelectorAll(".project[data-category]");
+
   filters.forEach((button) => {
     button.addEventListener("click", () => {
-      const selected = button.dataset.filter;
-      filters.forEach((item) => item.classList.toggle("active", item === button));
-      cards.forEach((card) => {
-        card.hidden = selected !== "all" && card.dataset.category !== selected;
+      const chosen = button.dataset.filter;
+
+      filters.forEach((filter) => {
+        filter.classList.toggle("is-active", filter === button);
+      });
+
+      projects.forEach((project) => {
+        project.hidden =
+          chosen !== "all" &&
+          project.dataset.category !== chosen;
       });
     });
   });
+
   const year = document.getElementById("year");
-  if (year) year.textContent = new Date().getFullYear();
+
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
 });
